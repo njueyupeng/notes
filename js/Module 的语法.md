@@ -164,7 +164,7 @@
     import { foo, bar } from 'my_module';
     ```
 
-20. 整体加载：
+20. 整体加载 ：
     ```javascript
     import *  as circle from './circle';
     ```
