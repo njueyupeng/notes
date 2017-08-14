@@ -204,7 +204,82 @@ css的一个基本概念是**盒模型**(box model)。
     - 2n+1,2n,4n-1,……
     - odd,even
 
+    ```css
+    iput[type=radio]:checked{
+        border:1px xolid black;
+    }
+    ```
+    > checked伪类用来匹配处于选定状态的界面元素，如radio、checkbox。
 
+    ```css
+    div:hover{
+        background:#e3e3e3;
+    }
+    ```
+    > :hover伪类设定当鼠标滑过时的元素的样式。上面代码中设定了div划过时的背景色。
+        在ie6中，:hover只能用于链接元素。
+    
+    ```css
+    div:not(#container){
+        color:blue;
+    }
+    ```
+    > 否定伪类选择器用来在匹配元素时排除某些元素。
+
+    ```css
+    li:nth-child(3){
+        color:red;
+    }
+    ```
+    > 这个伪类用于设定一个序列元素（比如li、tr）中的第n个元素（从1开始算起）的样式。
+    ```css
+    li:nth-last-child(2){
+        color:red;
+    }
+    ```
+    > 从序列的最后一个元素算起
+
+    ```css
+    ul:nth-of-type(3){
+        border:1px solid black;
+    }
+    ```
+    > 与:nth-child(n)类似，不同的是它匹配的不是某个序列元素，而是元素类型。
+
+    ```css
+    ul:nth-last-of-type(n){
+        border:1px solid black;
+    }
+    ```
+    > 与:nth-of-type(n)功能类似，不同的是它从元素最后一次出现开始算起。
+
+    ```css
+    ul>li:first-child{
+        border-top:1px solid black;
+    }
+    ```
+    > :first-child伪类用于匹配一个序列的第一个元素。经常用来实现一个序列的第一个元素或最后一个元素的上（下）边框。
+    ```css
+    ul>li:last-child{
+        border-bottom:none;
+    }
+    ```
+    > 与:first-child类似，它匹配的是序列的最后一个元素。
+
+    ```css
+    div p:only-child{
+        color:red;
+    }
+    ```
+    ```html
+    <div><p>content</p></div>
+
+    <div>
+        <p>content</p>
+        <p>content</p>
+    </div>
+    ```
+    > :
 5. 伪元素选择器
 
     |序号|选择器|说明|css版本|
