@@ -279,7 +279,48 @@ css的一个基本概念是**盒模型**(box model)。
         <p>content</p>
     </div>
     ```
-    > :
+    > :only-child选择器，匹配div下有且仅有一个的p。如果div内有多个p标签，将不匹配。
+    ```css
+    li:only-of-type{
+        font-weight:bold;
+    }
+    ```
+    > 这个伪类匹配的是，在它上级容器下只有它一个子元素，它没有相邻元素。上面代码匹配仅有一个列表项的列表元素。
+
+    >:first-of-type伪类与:nth-of-type(1)效果相同，匹配出现的第一个元素。
+    ```html
+    <div>
+      <p> My paragraph here. </p>
+      <ul>
+         <li> List Item 1 </li>
+         <li> List Item 2 </li>
+      </ul>
+      <ul>
+         <li> List Item 3 </li>
+         <li> List Item 4 </li>
+      </ul> 
+    </div>
+    ```
+    在上面的html代码中，希望匹配list item2列表项
+
+    方案一：
+    ```css
+    ul:first-of-type > li:nth-child(2){
+        font-weight:bold;
+    }
+    ```
+    方案二：
+    ```css
+    p + ul li:last-child{
+        font-weight:bold;
+    }
+    ```
+    方案三：
+    ```css
+    ul:first-of-type li:nth-last-child(1){
+        font-weight:bold;
+    }
+    ```
 5. 伪元素选择器
 
     |序号|选择器|说明|css版本|
@@ -341,9 +382,15 @@ css的一个基本概念是**盒模型**(box model)。
 
      让超链接访问后和访问前的颜色不同且访问后仍保留hover和active效果
 
+     原因：
+
+        鼠标经过的“未访问链接”可应用a:link、a:hover、a:active 这三种伪类选择器来定义样式，因为后面的样式会覆盖前面的样式，所以a:hover应放在a:link的后面，a:active放在最后。
+        鼠标经过的“已访问链接”可应用a:visited、a:hover、a:active这三种类选择器来定义样式，因为后面的样式会覆盖前面的样式，所以a:hover应放在a:hovor的后面，a:active放在最后。
+        所以说，a:hover定义一定要放在a:link、a:visited的后面，a:active 放在最后。
+
 ### (4)css选择器的解析顺序和原因
 
-![image](https://segmentfault.com/img/bVc9NH/view)
+![image](https://segmentfault.com/img/bVc9NH/view) 
 
 ### (5)为什么相邻兄弟选择器只能选择后面的元素？
     浏览器解析HTML文档，是从前往后，由外及里的。如果css相邻选择器支持选择前面的元素，那么浏览器必须等到后面的元素加载完毕才能渲染HTML文档，渲染速度会大大减慢，浏览器出现长时间白屏。
