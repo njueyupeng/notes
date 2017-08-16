@@ -378,7 +378,7 @@ a:after{
 另外一种情况：
 ```css
 #parent p.class1{...}
-#div #child.class1{...}
+div #child.class1{...}
 
 <div id="parent">
     <p id="child" class="class1">
@@ -403,11 +403,11 @@ div{color:#666}
      
      用来定义超链接被访问后的样式
   
-  - a:link
+  - a:active
      
      用来定义鼠标放到超链接上，但鼠标键未被按下时的样式
   
-  - a:link
+  - a:visited
      
      用来定义鼠标放到超链接上，并被按下时的样式
 
