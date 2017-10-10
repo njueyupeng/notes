@@ -16,6 +16,10 @@
     2. Vue
     3. jquery
 
+## 几个工具
+    1. webpack
+    2. git
+
 ## 后端语言和框架
     1. Nodejs
     2. express
