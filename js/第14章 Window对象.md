@@ -4,9 +4,9 @@ Window对象是客户端JavaScript程序的全局对象。本章介绍Window对�
 
 ## 1. 计时器
  
- 1. **setTimeout()**和**setInterval()**可以用来注册在指定的时间之后单次或重复调用的函数因为它们收拾客户端JavaScript中重要的全局函数，所以定义为Window对象的方法，但作为通用函数，其实不会对窗口做什么事情。
+ 1. **setTimeout()** 和 **setInterval()** 可以用来注册在指定的时间之后单次或重复调用的函数因为它们收拾客户端JavaScript中重要的全局函数，所以定义为Window对象的方法，但作为通用函数，其实不会对窗口做什么事情。
 
-2. **setTimeout()**返回一个值，这个值可以传递给**clearTimeout()**用于取消这个函数的执行。 **setInterval()**返回一个值，这个值可以传递给**clearInterval()**用于取消这个函数的执行。
+2. **setTimeout()** 返回一个值，这个值可以传递给 **clearTimeout()** 用于取消这个函数的执行。 **setInterval()** 返回一个值，这个值可以传递给 **clearInterval()** 用于取消这个函数的执行。
     ```javascript
     function invoke(f, start, interval, end){
         if(!start) start = 0;
@@ -42,3 +42,26 @@ Document对象也有一个URL属性，是文档首次载入后保存该文档的
 ### 2.1 解析URL
 
 1. Window对象的location属性引用的是Location对象，它表示该窗口中当前显示的文档的URL。Location对象的href属性是一个字符串，后者包含URL的完整文本。Location对象的toString()方法返回href属性的值，因此在会隐式调用toString()的情况下，可以使用location代替location.href。
+
+2. 这个对象的其他属性——protocol,host,hostname,port,pathname和search,分别表示URL的各个部分。他们称为“URL分解”属性。
+
+3. Location对象的hash和search属性比较有趣。如果有的话，hash属性返回URL中的“片段标识符”部分。search属性也类似，它返回的是问好之后的URL，这部分通常是某种类型的查询字符串。一般来说，这部分内容是用来参数化URL并子啊其中嵌入参数的。
+
+下面这个函数用来将参数从URL的search属性中提取出来。
+
+```javascript
+function urlArgs(){
+    var args = {};
+    var query = location.search.substring(1);//查找到查询串并去掉'?'
+    var pairs = query.split('&');
+    for(var i = 0;i<pairs.length;i++){
+        var pos = pairs[i].indexOf('=');
+        if(pos == -1) continue;
+        var name = pairs[i].substring(0,pos);
+        var value = pairs[i].substring(pos+1);
+        value = decodeURIComponent(value);
+        args[name] = value;
+    }
+    return args;
+}
+```
