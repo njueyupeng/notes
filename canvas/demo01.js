@@ -61,4 +61,40 @@ ctx05.fill()
 // ctx05.stroke();
 
 
+var ctx06 = document.getElementById('demo06').getContext('2d');
+
+ctx06.lineWidth = 10;
+ctx06.lineJoin = 'round';
+ctx06.lineCap = 'round';
+
+ctx06.beginPath();
+ctx06.strokeStyle = 'red';
+ctx06.moveTo(250,100);
+ctx06.lineTo(280,140);
+ctx06.stroke();
+
+
+ctx06.beginPath();
+ctx06.strokeStyle = 'blue';
+ctx06.moveTo(280,140)
+ctx06.lineTo(220,140);
+ctx06.stroke();
+ctx06.strokeStyle = 'green';
+ctx06.beginPath();
+ctx06.moveTo(220,140)
+ctx06.lineTo(250,100);
+ctx06.stroke();
+// ctx06.lineWidth = 0.1;
+// var color = ['blue','red','green']
+// setInterval(function(){
+//     ctx06.beginPath();
+//     ctx06.strokeStyle = 'green';
+//     var x= Math.random()*500;
+//     var y = Math.random()*300;
+//     ctx06.moveTo(x,y)
+//     ctx06.lineTo(x,y);
+//     ctx06.stroke();  
+// },10);
+
+
 

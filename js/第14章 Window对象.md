@@ -65,3 +65,4 @@ function urlArgs(){
     return args;
 }
 ```
+4. Location对象的assign()方法可使窗口载入并显示指定的URL中的文档。replace()方法也类似，但它在载入新文档之前会从浏览历史中把当前文档删除。如果脚本无条件地载入有一个新文档，replace()方法可能比assgin()方法更好。
