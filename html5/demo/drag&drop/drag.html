@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>拖拽</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #src div {
+            width: 500px;
+            height: 500px;
+            margin: 20px;
+            float: left;
+            border: 1px dotted #000;
+            line-height: 100px;
+            text-align: center;
+        }
+        .dragged{
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="src">
+        <!-- <div id="banana">Banana</div>
+        <div id="apple">Apple</div>
+        <div id="orange">Orange</div> -->
+        <img src="./image/th.jpg" alt="">
+        <div id="target">
+            <p id="msg">Drop Here</p>
+        </div>
+    </div>
+    <script>
+        var src = document.getElementById('src');
+        var target = document.getElementById('target');
+        var msg = document.getElementById('msg');
+        var id = '';
+        src.ondragstart = function(e){
+            e.target.classList.add('dragged');
+            id=e.target.id;
+        }
+        target.ondragenter = function(){
+            target.classList.add('dragged');
+        }
+        target.ondragleave = function(){
+            target.classList.remove('dragged');
+        }
+    </script>
+</body>
+
+</html>
