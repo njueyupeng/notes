@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "拦截请求",
+    "version": "1.0",
+    "description": "拦截页面请求",
+    "content_security_policy": "script-src 'self' 'unsafe-eval' ; object-src 'self';",
+    "background": {
+        "scripts": ["lib/fileSaver.js", "background.js"]
+    },
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "请求拦截",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "webRequest",
+        "webRequestBlocking",
+        "*://ssmpsit.cnsuning.com/",
+        "*://dippre.cnsuning.com/*"
+    ]
+}

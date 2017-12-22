@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 520px;
+    height: 600px;
+}
+#header{
+    height:40px;
+    width: 100%;
+    background-color: #db4c3f;
+}
+
+#header i{
+    display: block;
+    font-size: 25px;
+    color: white;
+    float: right;
+    margin-right: 30px;
+    margin-top: 7px;
+}
